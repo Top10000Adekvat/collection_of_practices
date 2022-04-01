@@ -1,0 +1,65 @@
+#include <iostream> 
+using namespace std;
+
+int main() {
+    cout << "#include <iostream> \n\n"
+        "int main() {\n"
+        "\tstd::cout << \"Hello, World!\\n\" << std::endl;\n"
+        "\treturn 0;\n"
+        "}";
+    return 0;
+}
+2)
+#include <iostream> 
+#include <string>
+using namespace std;
+
+int main() {
+    string word_1, word_2;
+    int poser = 0;
+    cin >> word_1;
+    while (cin >> word_2) {
+        if (word_1 == word_2) {
+            cout << word_1 << " position" << poser + 1 << '\n';
+        }
+        poser++;
+    }
+
+    return 0;
+}
+3)
+#include <iostream> 
+#include <string>
+using namespace std;
+
+int main() {
+    unsigned long long binary = 0, rang = 1;
+    int decimal = 0;
+    cin >> decimal;
+    while (decimal > 0) {
+        binary += (decimal % 2) * rang;
+        decimal /= 2;
+        rang *= 10;
+    }
+    cout << binary;
+    return 0;
+}
+4)
+#include <iostream> 
+#include <string>
+using namespace std;
+
+int main() {
+    string binary = "";
+    int decimal = 0;
+    cin >> binary;
+    
+    for (int i = binary.size(); i > -1; i--)
+    {
+        if (binary[i] == '1')
+            decimal += pow(2, i);
+     
+    }
+    cout << decimal;
+    return 0;
+}
