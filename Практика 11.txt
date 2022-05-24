@@ -1,0 +1,93 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+using namespace std;
+
+class Animal 
+{
+	public:
+		string name;
+		string feature;
+		string sound;
+		Animal(string name, string feature, string sound) {
+			this->sound = sound;
+			this->feature = feature;
+			this->name = name;
+		}
+		string get_sound() {
+			return sound;
+		}
+		string get_action() {
+			return feature;
+		}
+};
+
+
+class Farm : public Animal {
+	public:
+		Farm(string name, string feature, string sound) : Animal(name, feature, sound) 
+		{}
+			vector <string> resource;
+			void get_resource(string resurs) {
+				for (int i = 0; i < resource.size(); i++) {
+					if (resource[i] == resurs) {
+						cout << "string: " << resurs << endl;
+						return;
+					}
+				}
+				cout << "string ne naideno: " << endl;
+			}
+};
+
+class Cat : public Farm {
+	public:
+		string cats_ears;
+		string cats_tail;
+		string cats_body;
+
+		Cat(string name, string feature, string sound, string cats_ears, string cats_tail, string cats_body) : Farm (name, feature, sound)
+		{
+			this->cats_ears = cats_ears;
+			this->cats_tail = cats_tail;
+			this->cats_body = cats_body;
+		}
+		void get_action(string object) {
+			cout << name << " come with " << object << endl;
+			return;
+		}
+};
+
+class Dog : public Farm {
+	public:
+		string dogs_ears;
+		string dogs_tail;
+		string dogs_body;
+
+		Dog(string name, string feature, string sound, string dogs_ears, string dogs_tail, string dogs_body) : Farm (name, feature, sound)
+		{
+			this->dogs_ears = dogs_ears;
+			this->dogs_tail = dogs_tail;
+			this->dogs_body = dogs_body;
+		}
+		void get_action(string object) {
+			cout << name << " stay " << object << endl;
+			return;
+		}
+};
+
+class Wolf : public Animal {
+public:
+	Wolf(string name, string feature, string sound) : Animal(name, feature, sound) {
+	};
+	void get_action(string object) {
+		cout << name << "steals the: " << object << endl;
+	}
+};
+
+
+int main() {
+	Wolf wolf("1", "2", "3");
+	cout << ' ' << wolf.get_sound() << ' ' << wolf.name;
+	return 0;
+}
